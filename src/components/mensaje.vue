@@ -5,8 +5,8 @@
             <h5 class="alert-heading">{{title}}</h5>
             <hr>
         </section>
-        <span class="col-10">{{message}}</span>
-        <div class="progressBar" :style="`width:${width}%`" v-if="width> 0"/>
+        <span class="col-10">{{ $t(`alerts['${message}']`) }}</span>
+        <div class="progressBar" :style="`width:${width}%`" v-if="width > 1"/>
     </div>
 </template>
 

@@ -3,7 +3,7 @@
         <span class="row">{{fecha}}</span>
         <div class="row justify-content-between">
             <datos v-for="(valor,key) in datosDia.datos" :key="key" :medidas="valor">
-                <span>{{key}}</span>
+                <span>{{ $t(key)}}</span>
             </datos>
         </div>
         <hr>

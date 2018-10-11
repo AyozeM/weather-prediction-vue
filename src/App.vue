@@ -5,19 +5,26 @@
     leave-active-class="animated bounceOutUp">
       <alert :message="message" v-if="message" @finalizado="clearMessage"/>
     </transition>
-    <h1>Informacion del tiempo</h1>
+    
+      <h1>{{ $t('page.title') }}</h1>
+      <img src="./assets/englishFlag.svg" @click="changeLanguage('en')" alt="traducir al ingles" class="col-1" :class="{'diselect':language == 'es'}" >
+      <img src="./assets/spanishFlag.svg" @click="changeLanguage('es')" alt="traducir al español" class="col-1" :class="{'diselect':language == 'en'}">
+    
     <hr>
+
     <div class="row justify-content-between">
       <select-vue v-if="provincias" name="provincias" :data="provincias" @cambio="cambioProvincia">
-        <h5>Provincias</h5>
+        <h5>{{ $t('page.provincia') }}</h5>
       </select-vue>
       <select-vue v-if="municipios" name="municipios" :data="municipios" @cambio="datosTiempo">
-        <h5>Municipios</h5>
+        <h5>{{ $t('page.municipio') }}</h5>
       </select-vue>
     </div>
+    
     <section>
       <prediccion v-for="(day,i) in prediccion" :key="i" :datosDia="day"/>
     </section>
+
   </div>
 </template>
 
@@ -37,10 +44,15 @@ export default {
       municipios: null,
       provinciaActual: null,
       prediccion:null,
-      message:null
+      message:null,
+      language:'en'
     };
   },
   methods: {
+    changeLanguage(lang){
+      this.language = lang;
+      this.$i18n.locale = lang;
+    },
     clearMessage(){
       this.message = null;
     },
@@ -75,4 +87,10 @@ export default {
 </script>
 
 <style>
+  img{
+    cursor: pointer; 
+  }
+  .diselect{
+    filter: grayscale(100%)
+  }
 </style>

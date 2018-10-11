@@ -2,8 +2,8 @@
 <section class="row col-4">
     <slot></slot>
     <div class="row  col-12 justify-content-between">
-        <p class="text-danger">Máxima {{medidas.max}}</p>
-        <p class="text-info">Mínimo {{medidas.min}}</p>
+        <p class="text-danger">{{$t('page.maxima')}} {{medidas.max}}</p>
+        <p class="text-info">{{$t('page.minima')}} {{medidas.min}}</p>
     </div>
 </section>
 </template>

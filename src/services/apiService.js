@@ -18,7 +18,7 @@ const getProvincias = () => {
             },
             error => {
                 console.error("hubo un fallo en la peticon", error);
-                reject('No se pudieron obtener las provincias');
+                reject('provinciaNotFound');
             }
         );
     })
@@ -42,7 +42,7 @@ const getMunicipiosProvincia = provincia => {
             },
             error => {
                 console.error('Hubo un fallo ', error);
-                reject('No se han podido cargar los municipios');
+                reject('municipioNotFound');
             }
         );
     });
@@ -62,25 +62,25 @@ const getMunicipcioWeather = (procincia,municipio) =>{
                   fecha: new Date(e['@attributes'].fecha),
                   datos:{
                     temperatura:{
-                      max: e.temperatura.maxima,
-                      min: e.temperatura.minima,
+                      max: `${e.temperatura.maxima}ºC`,
+                      min: `${e.temperatura.minima}ºC`,
                     },
                     humedad:{
-                      max: e.humedad_relativa.maxima,
-                      min: e.humedad_relativa.minima
+                      max: `${e.humedad_relativa.maxima}%`,
+                      min: `${e.humedad_relativa.minima}%`
                     },
                     sen_termica:{
-                      max: e.sens_termica.maxima,
-                      min: e.sens_termica.minima
+                      max: `${e.sens_termica.maxima}ºC`,
+                      min: `${e.sens_termica.minima}ºC`
                     }
                   }
                 }
               }));            
         }).catch(error=>{
             console.error('Fallo en la consulta ',error);
-            reject('No se han podido cargar los datos temporales de este municipio');
+            reject('weatherNotFound');
         });
-    });
-};
+    }       );
+        };
 
 export { getProvincias, getMunicipiosProvincia, getMunicipcioWeather };
