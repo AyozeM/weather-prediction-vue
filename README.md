@@ -16,6 +16,9 @@ Para probarlo clona el proyecto y ejecuta los siguientes comandos:
     npm run dev
 ```
 
-Si  aun así no funciona instala el plugin Allow-Control-Allow-Origin:
+O bien accede a esta web [https://weather-prediction-vue.herokuapp.com/](https://weather-prediction-vue.herokuapp.com/)
+
+
+Instala el plugin Allow-Control-Allow-Origin:
 
 [Enlace de plugin para chrome](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi)
